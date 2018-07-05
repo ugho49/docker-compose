@@ -1,3 +1,3 @@
-# All the docker-compose files i use
+# Docker Compose Boilerplate
 
 This repo is only something usefull for my developments
