@@ -1,0 +1,31 @@
+version: '3.6'
+
+services:
+    php:
+        image: php:7.2.7-apache-stretch
+        ports:
+            - 8001:80
+        volumes:
+            - ${PHP_WORK_PATH}:/var/www/html/
+        networks:
+            - default
+    mariadb:
+        image: mariadb:10.3.8
+        ports: 
+            - 3306:3306
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+        volumes:
+            - mariadb:/var/lib/mysql
+        networks:
+            - default
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin:4.8
+        links: 
+            - mariadb:db
+        ports:
+            - 8000:80
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+volumes:
+    mariadb:
