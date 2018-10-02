@@ -1,0 +1,27 @@
+version: '3.6'
+
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.4.2
+    volumes:
+      - esdata1:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+      - 9300:9300
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:6.4.2
+    depends_on:
+      - elasticsearch
+    ports:
+      - 5601:5601
+  
+  logstash:
+    image: docker.elastic.co/logstash/logstash:6.4.2
+    depends_on:
+      - elasticsearch
+    ports:
+      - 9600:9600
+
+volumes:
+  esdata1:
