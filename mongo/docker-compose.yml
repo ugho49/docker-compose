@@ -1,0 +1,12 @@
+version: '3.6'
+
+services:
+  mongodb:
+    image: 'bitnami/mongodb:latest'
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - ${PWD}/mongodb-persistence:/bitnami
+    environment:
+      - MONGODB_ROOT_PASSWORD=root
