@@ -22,6 +22,7 @@ services:
       - elasticsearch
     ports:
       - 9600:9600
+      - 5044:5044
 
 volumes:
   esdata1:
