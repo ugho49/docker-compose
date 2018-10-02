@@ -2,9 +2,7 @@ version: '3.6'
 
 services:
    db:
-     image: bobsense/mysql:latest
-     volumes:
-       - ${DB_PATH}:/u01/my3306/data
+     image: mariadb:10.3.6
      restart: always
      environment:
        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
