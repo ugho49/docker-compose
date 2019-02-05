@@ -3,6 +3,7 @@ version: '3.7'
 services:
   rabbitmq:
     image: "rabbitmq:3.7.10-management-alpine"
+    restart: always
     networks:
       - rabbitmq-network
     ports:
